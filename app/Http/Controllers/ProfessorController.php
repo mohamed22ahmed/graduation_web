@@ -2,20 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Exam;
 use App\McqQuestion;
-use App\TfQuestion;
 use App\Student_exam;
+use App\TfQuestion;
+use Illuminate\Http\Request;
+
 class ProfessorController extends Controller
 {
-    public function professor(){
-        return view('professorPage');
-    }
-
     // add Exam functions
     public function addExam(){
-        return view('addExam');
+        return view('professor.addExam');
     }
     public function addExamDone(Request $req){
         request()->validate([
@@ -27,7 +24,7 @@ class ProfessorController extends Controller
 
     // delete Exam functions
     public function deleteExam(){
-        return view('deleteExam');
+        return view('professor.deleteExam');
     }
     public function deleteExamDone(Request $req){
         request()->validate([
@@ -40,7 +37,7 @@ class ProfessorController extends Controller
     // add MCQ question functions
     public function addMcq(){
         $data=Exam::all();
-        return view('addMcq',compact('data'));
+        return view('professor.addMcq',compact('data'));
     }
     public function addMcqDone(Request $req){
         request()->validate([
@@ -67,7 +64,7 @@ class ProfessorController extends Controller
     // Delete MCQ Question functions
     public function deleteMcq(){
         $data=Exam::all();
-        return view('deleteMcq',compact('data'));
+        return view('professor.deleteMcq',compact('data'));
     }
     public function deleteMcqDone(Request $req){
         request()->validate([
@@ -81,7 +78,7 @@ class ProfessorController extends Controller
     //add T&F question functions
     public function addTf(){
         $data=Exam::all();
-        return view('addTf',compact('data'));
+        return view('professor.addTf',compact('data'));
     }
     public function addTfDone(Request $req){
         request()->validate([
@@ -100,7 +97,7 @@ class ProfessorController extends Controller
     // Delete T & F Question functions
     public function deleteTf(){
         $data=Exam::all();
-        return view('deleteTf',compact('data'));
+        return view('professor.deleteTf',compact('data'));
     }
     public function deleteTfDone(Request $req){
         request()->validate([
@@ -114,7 +111,7 @@ class ProfessorController extends Controller
     //choose Exam to show functions
     public function chooseExam(){
         $data=Exam::all();
-        return view('chooseExam',compact('data'));
+        return view('professor.chooseExam',compact('data'));
     }
     public function chooseExamDone(Request $req){
         request()->validate([
@@ -130,7 +127,7 @@ class ProfessorController extends Controller
         $McqData=McqQuestion::where('exam_id',$id)->get();
         $TfData=TfQuestion::where('exam_id',$id)->get();
 
-        return view('showExamProfessor',compact('McqData','TfData'));
+        return view('professor.showExamProfessor',compact('McqData','TfData'));
     }
     public function showExamDone(Request $req){
         request()->validate([
@@ -143,7 +140,7 @@ class ProfessorController extends Controller
     //edit MCQ question
     public function editMcq($id){
         $records=McqQuestion::find($id);
-        return view('editMcq',compact('records'));
+        return view('professor.editMcq',compact('records'));
     }
     public function updateMcq(Request $request,$id){
         $data=McqQuestion::find($id);
@@ -173,7 +170,7 @@ class ProfessorController extends Controller
     //edit T & F question function
     public function editTf($id){
         $records=TfQuestion::find($id);
-        return view('editTf',compact('records'));
+        return view('professor.editTf',compact('records'));
     }
     public function updateTf(Request $request,$id){
         $data=TfQuestion::find($id);
@@ -195,7 +192,7 @@ class ProfessorController extends Controller
     //set timer for exam functions
     public function setTimer(){
         $data=Exam::all();
-        return view('setTimer',compact('data'));
+        return view('professor.setTimer',compact('data'));
     }
     public function setTimerDone(Request $req){
         request()->validate([
@@ -212,7 +209,7 @@ class ProfessorController extends Controller
     //choose Exam to show results
     public function examResult(){
         $data=Exam::all();
-        return view('examResult',compact('data'));
+        return view('professor.examResult',compact('data'));
     }
     public function examResultDone(Request $req){
         request()->validate([
@@ -226,7 +223,7 @@ class ProfessorController extends Controller
     public function showResult(){
         $id=session()->get('idx');
         $data=Student_exam::where('exam_id',$id)->get();
-        return view('showResult',compact('data'));
+        return view('professor.showResult',compact('data'));
     }
     public function showResultDone(Request $req){
         request()->validate([

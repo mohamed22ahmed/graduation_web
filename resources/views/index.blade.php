@@ -9,7 +9,7 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="{{asset('css/bootstrab.css')}}">
   <link rel="stylesheet" href="{{asset('css/style.css')}}">
-  <title>pro 9</title>
+  <title>Online Exam</title>
 </head>
 
   <body id="home" data-spy="scroll" data-target="#main-nav">
@@ -309,35 +309,6 @@
               <h3>Youssef Mohamed</h3>
               <h5 class="text-muted">Member</h5>
               <p>student of Fci Android developer with +2 years of experience</p>
-              <div class="d-flex justify-content-center">
-                <div class="p-4">
-                  <a href="http://facebook.com">
-                    <i class="fab fa-facebook"></i>
-                  </a>
-                </div>
-                <div class="p-4">
-                  <a href="http://twitter.com">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                </div>
-                <div class="p-4">
-                  <a href="http://instagram.com">
-                    <i class="fab fa-instagram"></i>
-                  </a>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6">
-          <div class="card">
-            <div class="card-body">
-              <img src="img/person1.jpg" alt="" class="img-fluid rounded-circle w-50 mb-3">
-              <h3>Amira Mohamed </h3>
-              <h5 class="text-muted">Member</h5>
-              <p>student of Fci Android developer with +1 years of experience</p>
               <div class="d-flex justify-content-center">
                 <div class="p-4">
                   <a href="http://facebook.com">

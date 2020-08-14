@@ -13,13 +13,13 @@
 
 Route::get('/','MainController@index');
 Route::get('/login','MainController@login');
-Route::post('/login','MainController@studentLogin');
-Route::get('/proLogin','MainController@professorLogin');
-Route::post('/proLogin','MainController@professorLoginTest');
+Route::post('/login','MainController@loginPost');
+
+Route::get('/professorPage','MainController@professorPage');
+Route::get('/studentPage','MainController@studentPage');
 
 //////////////////////////////////////// Professor Routes ///////////////////////////////////////////////////////
 
-Route::get('/professorPage','ProfessorController@professor');
 //add Exam Routes
 Route::get('/addExam','ProfessorController@addExam');
 Route::post('/addExam','ProfessorController@addExamDone');
