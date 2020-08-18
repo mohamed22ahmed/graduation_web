@@ -17,6 +17,7 @@ class CreateExamsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->integer('duration')->default(10);
+            $table->string('password')->default('123456');
             $table->string('graph')->nullable();
             $table->timestamps();
         });

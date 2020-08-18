@@ -9,6 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
+                    @php $i=1; @endphp
                     <table class="table table-dark mt-5">
                         <thead>
                             <tr>
@@ -19,24 +20,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>John Doe</td>
-                                <td>jdoe@gmail.com</td>
-                                <td>50</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Will Johnson</td>
-                                <td>will@yahoo.com</td>
-                                <td>70</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Shannon Williams</td>
-                                <td>shannon@yahoo.com</td>
-                                <td>90</td>
-                            </tr>
+                            @foreach($data as $record)
+                                @foreach ($record->students as $item)
+                                    <tr>
+                                        <th scope="row">{{ $i++ }}</th>
+                                        <td>{{ $item->name }}</td>
+
+                                        <td>{{ $item->email }}</td>
+                                        <td>{{ $item->pivot->degree}}</td>
+                                    </tr>
+                                @endforeach
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -44,9 +38,7 @@
                     <div class="card mt-5 bg-dark text-white" style="width: 20rem;">
                         <div class="card-body card-dark">
                             <h4 class="card-title">Total success</h4>
-
                             <h2 class="h1">60%</h2>
-
                         </div>
                     </div>
                 </div>

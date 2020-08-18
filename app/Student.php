@@ -9,6 +9,6 @@ class Student extends Model
     protected $guarded=[];
 
     public function exams(){
-        return $this->belongsToMany(Exam::class);
+        return $this->belongsToMany('App\Exam','student_exams');
     }
 }

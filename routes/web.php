@@ -14,6 +14,7 @@
 Route::get('/','MainController@index');
 Route::get('/login','MainController@login');
 Route::post('/login','MainController@loginPost');
+Route::post('/logout','MainController@logout');
 
 Route::get('/professorPage','MainController@professorPage');
 Route::get('/studentPage','MainController@studentPage');
@@ -57,6 +58,9 @@ Route::get('/tf/delete/{id}','ProfessorController@destroyTf');
 //set timer for exam
 Route::get('/setTimer','ProfessorController@setTimer');
 Route::post('/setTimer','ProfessorController@setTimerDone');
+//set password for exam
+Route::get('/setPassword','ProfessorController@setPassword');
+Route::post('/setPassword','ProfessorController@setPasswordDone');
 //choose exam to show its results
 Route::get('/examResult','ProfessorController@examResult');
 Route::post('/examResult','ProfessorController@examResultDone');

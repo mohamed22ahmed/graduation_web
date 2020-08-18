@@ -23,6 +23,7 @@ class MainController extends Controller
         ]);
         $data=Professor::where('email',request('email'))->where('password',request('password'))->first();
         if($data){
+            // session()->put('prof',$data->name);
             return redirect('/professorPage');
         }else{
             $d=Student::where(['email'=>$request->email,'password'=>$request->password])->first();
@@ -39,5 +40,13 @@ class MainController extends Controller
 
     public function studentPage(){
         return view('student.index');
+    }
+
+    public function logout(){
+        // if(session('prof')){
+        //     session()->forget('prof');
+        //     session()->forget('student');
+        // }
+        return redirect('/login');
     }
 }

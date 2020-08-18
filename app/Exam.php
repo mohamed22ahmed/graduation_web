@@ -17,7 +17,7 @@ class Exam extends Model
     }
 
     public function students(){
-        return $this->belongsToMany(Studnet::class);
+        return $this->belongsToMany('App\Student','student_exams')->withPivot('degree');
     }
 
     public function professors(){

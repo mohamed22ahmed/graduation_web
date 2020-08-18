@@ -12,6 +12,8 @@ class ProfessorController extends Controller
 {
     // add Exam functions
     public function addExam(){
+        //if(session('prof'))
+        //            return redirect('/login');
         return view('professor.addExam');
     }
     public function addExamDone(Request $req){
@@ -24,6 +26,8 @@ class ProfessorController extends Controller
 
     // delete Exam functions
     public function deleteExam(){
+        //if(session('prof'))
+        //            return redirect('/login');
         return view('professor.deleteExam');
     }
     public function deleteExamDone(Request $req){
@@ -36,6 +40,8 @@ class ProfessorController extends Controller
 
     // add MCQ question functions
     public function addMcq(){
+        //if(session('prof'))
+        //            return redirect('/login');
         $data=Exam::all();
         return view('professor.addMcq',compact('data'));
     }
@@ -63,6 +69,8 @@ class ProfessorController extends Controller
 
     // Delete MCQ Question functions
     public function deleteMcq(){
+        //if(session('prof'))
+        //            return redirect('/login');
         $data=Exam::all();
         return view('professor.deleteMcq',compact('data'));
     }
@@ -77,6 +85,8 @@ class ProfessorController extends Controller
 
     //add T&F question functions
     public function addTf(){
+        //if(session('prof'))
+        //            return redirect('/login');
         $data=Exam::all();
         return view('professor.addTf',compact('data'));
     }
@@ -96,6 +106,8 @@ class ProfessorController extends Controller
 
     // Delete T & F Question functions
     public function deleteTf(){
+        //if(session('prof'))
+        //            return redirect('/login');
         $data=Exam::all();
         return view('professor.deleteTf',compact('data'));
     }
@@ -110,6 +122,8 @@ class ProfessorController extends Controller
 
     //choose Exam to show functions
     public function chooseExam(){
+        //if(session('prof'))
+        //            return redirect('/login');
         $data=Exam::all();
         return view('professor.chooseExam',compact('data'));
     }
@@ -123,6 +137,8 @@ class ProfessorController extends Controller
 
     //show Exam functions
     public function showExam(){
+        //if(session('prof'))
+        //            return redirect('/login');
         $id=session()->get('id');
         $McqData=McqQuestion::where('exam_id',$id)->get();
         $TfData=TfQuestion::where('exam_id',$id)->get();
@@ -139,6 +155,8 @@ class ProfessorController extends Controller
 
     //edit MCQ question
     public function editMcq($id){
+        //if(session('prof'))
+        //            return redirect('/login');
         $records=McqQuestion::find($id);
         return view('professor.editMcq',compact('records'));
     }
@@ -169,6 +187,8 @@ class ProfessorController extends Controller
 
     //edit T & F question function
     public function editTf($id){
+        //if(session('prof'))
+        //            return redirect('/login');
         $records=TfQuestion::find($id);
         return view('professor.editTf',compact('records'));
     }
@@ -191,6 +211,8 @@ class ProfessorController extends Controller
 
     //set timer for exam functions
     public function setTimer(){
+        //if(session('prof'))
+        //            return redirect('/login');
         $data=Exam::all();
         return view('professor.setTimer',compact('data'));
     }
@@ -206,8 +228,29 @@ class ProfessorController extends Controller
         return redirect('/professorPage');
     }
 
+    //set Password for exam functions
+    public function setPassword(){
+        //if(session('prof'))
+        //            return redirect('/login');
+        $data=Exam::all();
+        return view('professor.setPassword',compact('data'));
+    }
+    public function setPasswordDone(Request $req){
+        request()->validate([
+            'exam'=>'required',
+            'password'=>'required',
+        ]);
+        $id=$req->exam;
+        $data=Exam::find($id);
+        $data->password=$req->password;
+        $data->save();
+        return redirect('/professorPage');
+    }
+
     //choose Exam to show results
     public function examResult(){
+        //if(session('prof'))
+        //  return redirect('/login');
         $data=Exam::all();
         return view('professor.examResult',compact('data'));
     }
@@ -222,7 +265,8 @@ class ProfessorController extends Controller
     //show Exam functions
     public function showResult(){
         $id=session()->get('idx');
-        $data=Student_exam::where('exam_id',$id)->get();
+        $data=Exam::where('id',$id)->with('students')->get();
+        // dd($data);
         return view('professor.showResult',compact('data'));
     }
     public function showResultDone(Request $req){

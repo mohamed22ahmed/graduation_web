@@ -40,12 +40,20 @@
             <li class="nav-item">
                 <a href="/setTimer" class="nav-link">Timer</a>
               </li>
+              <li class="nav-item">
+                <a href="/setPassword" class="nav-link">Password</a>
+              </li>
             <li class="nav-item">
               <a href="/examResult" class="nav-link">Results</a>
             </li>
             <li class="nav-item">
                 <a href="#contact" class="nav-link">Draw graph</a>
-              </li>
+            </li>
+            <li class="nav-item">
+                <form method="post" action="/logout">@csrf
+                    <button type="submit" class="nav-link" style="border:none">Logout</button>
+                </form>
+            </li>
           </ul>
         </div>
       </div>
