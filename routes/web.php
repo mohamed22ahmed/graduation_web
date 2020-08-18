@@ -67,3 +67,10 @@ Route::post('/examResult','ProfessorController@examResultDone');
 //show results
 Route::get('/showResult','ProfessorController@showResult');
 Route::post('/showResult','ProfessorController@showResultDone');
+
+// ############################################# Student Routes ##############################
+Route::get('/doExam','StudentController@loginExam');
+Route::post('/doExam','StudentController@accessExam');
+Route::get('/studentExam','StudentController@studentExamview');
+Route::post('/studentExam','StudentController@studentExamSubmit');
+Route::get('/autoCorrect','StudentController@auto_correct');
