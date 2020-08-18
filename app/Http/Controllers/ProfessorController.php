@@ -266,6 +266,7 @@ class ProfessorController extends Controller
     public function showResult(){
         $id=session()->get('idx');
         $data=Exam::where('id',$id)->with('students')->get();
+
         // dd($data);
         return view('professor.showResult',compact('data'));
     }

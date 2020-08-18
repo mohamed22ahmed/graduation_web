@@ -24,10 +24,10 @@
                                         <a class="float-right mr-3 text-secondary d-inline" href='{{ url("/mcq/delete/{$ques->id}") }}'><i class="fas fa-trash"></i></a>
                                         <a href="" class="float-right mr-3 text-info d-inline"><i class="fas fa-chart-pie"></i></a>
                                         <br>
-                                        <input type="radio" name="q1" disabled>{{ $ques->first_choice }}<br>
-                                        <input type="radio" name="q2" disabled>{{ $ques->second_choice }}<br>
-                                        <input type="radio" name="q3" disabled>{{ $ques->third_choice }}<br>
-                                        <input type="radio" name="q4" disabled>{{ $ques->forth_choice }}<br clear="both">
+                                        <input type="radio" name="q1" disabled> &nbsp;{{ $ques->first_choice }}<br>
+                                        <input type="radio" name="q2" disabled> &nbsp;{{ $ques->second_choice }}<br>
+                                        <input type="radio" name="q3" disabled> &nbsp;{{ $ques->third_choice }}<br>
+                                        <input type="radio" name="q4" disabled> &nbsp;{{ $ques->forth_choice }}<br clear="both">
                                     @endforeach
                                 @endif
                                 @if($TfData)
@@ -40,8 +40,8 @@
                                         <a class="float-right mr-3 text-secondary d-inline" href='{{ url("/tf/delete/{$ques->id}") }}'><i class="fas fa-trash"></i></a>
                                         <a href="" class="float-right mr-3 text-info d-inline"><i class="fas fa-chart-pie"></i></a>
                                         <br>
-                                        <input type="radio" name="true" disabled>true<br>
-                                        <input type="radio" name="false" disabled>false<br clear="both">
+                                        <input type="radio" name="true" disabled> &nbsp;True<br>
+                                        <input type="radio" name="false" disabled> &nbsp;False<br clear="both">
                                     @endforeach
                                 @endif
                             </div>

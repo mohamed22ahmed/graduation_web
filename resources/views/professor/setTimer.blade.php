@@ -24,7 +24,7 @@
                 <input type="text" class="form-control" placeholder="Time in minutes.. " name="timer">
               </div>
               <div class="modal-footer">
-                <button class="btn btn-success-success" type="submit" data-dismiss="modal">Set Time</button>
+                <button class="btn btn-success" type="submit" data-dismiss="modal">Set Time</button>
               </div>
           </form>
         </div>

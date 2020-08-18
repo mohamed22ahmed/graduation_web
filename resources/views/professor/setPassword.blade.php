@@ -24,7 +24,7 @@
                 <input type="text" class="form-control" placeholder="Password for this Exam.. " name="password">
               </div>
               <div class="modal-footer">
-                <button class="btn btn-success-success" type="submit" data-dismiss="modal">Set Password</button>
+                <button class="btn btn-success" type="submit" data-dismiss="modal">Set Password</button>
               </div>
           </form>
         </div>

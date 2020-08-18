@@ -74,3 +74,23 @@ Route::post('/doExam','StudentController@accessExam');
 Route::get('/studentExam','StudentController@studentExamview');
 Route::post('/studentExam','StudentController@studentExamSubmit');
 Route::get('/autoCorrect','StudentController@auto_correct');
+
+// ########################################### Admin Routes #############################################3
+Route::get('admin/login','AdminController@loginview');
+Route::post('admin/login','AdminController@login');
+
+Route::get('/adminPage','AdminController@adminPage');
+Route::get('/admin/delete_student','AdminController@delete_student_view');
+Route::get('/admin/delete_one_student/{id}','AdminController@delete_student');
+Route::get('/admin/add_student','AdminController@add_student_view');
+Route::post('/admin/add_student','AdminController@add_student');
+Route::get('/admin/student_degrees','AdminController@show_degrees');
+
+Route::get('/admin/show_professors','AdminController@show_professors');
+Route::get('/admin/delete_professor','AdminController@delete_professor_view');
+Route::get('/admin/delete_one_professor/{id}','AdminController@delete_professor');
+Route::get('/admin/add_professor','AdminController@add_professor_view');
+Route::post('/admin/add_professor','AdminController@add_professor');
+
+Route::get('/admin/logout','AdminController@logout');
+Route::get('/adminPage','AdminController@adminPage');

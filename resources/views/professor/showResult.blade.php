@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    @php $i=1; @endphp
+                    @php $i=1; $x=0;$y=0;@endphp
                     <table class="table table-dark mt-5">
                         <thead>
                             <tr>
@@ -28,6 +28,7 @@
 
                                         <td>{{ $item->email }}</td>
                                         <td>{{ $item->pivot->degree}}</td>
+                                        {{ $y++ }}{{ $item->pivot->degree>=50?$x++:'' }}
                                     </tr>
                                 @endforeach
                             @endforeach
@@ -38,7 +39,7 @@
                     <div class="card mt-5 bg-dark text-white" style="width: 20rem;">
                         <div class="card-body card-dark">
                             <h4 class="card-title">Total success</h4>
-                            <h2 class="h1">60%</h2>
+                            <h2 class="h1">{{ $x/$y*100 }}%</h2>
                         </div>
                     </div>
                 </div>
